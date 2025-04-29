@@ -2,10 +2,10 @@
 
 {% block content %}
   <h1>Car: {{ car.model }}</h1>
-  {% if car.manufacturer %}
+  {% if car.manufacturer.exists %}
     <ul>
       <li>{{ car.manufacturer.country }} {{ car.manufacturer.name }}</li>
-      {% if car.drivers.all %}
+      {% if car.drivers.all|length %}
       	{% for driver in car.drivers.all%}
           <li>{{ driver }}</li>
         {% endfor %}
